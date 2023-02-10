@@ -1,0 +1,15 @@
+{
+    "model_name": "facebook/xglm-564M",
+    "output_model_path":"./saved_model",
+
+    "dataset_dir":"./dataset/with_title",
+    "max_seq_length": 2048,
+    "max_dataset_length": 80000,
+    "check_train_data": false,
+    "per_file": false,
+
+    "epoch": 3,
+    "batch_size": 1,
+    "grad_ac": 4,
+    "lr": 0.004
+}
