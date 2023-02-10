@@ -146,7 +146,7 @@ def load_model(model_name):
 def arg_parse() -> Tuple[ModelArguments, DataTrainingArguments, Seq2SeqTrainingArguments]:    
     parser = HfArgumentParser((ModelArguments, DataTrainingArguments, EnhancedTrainingArguments))
     
-    if len(sys.argv) == 2 and sys.argv[1].endswith(".json"):
+    if sys.argv[1].endswith(".json"):
         model_args, data_args, __training_args = parser.parse_json_file(json_file=os.path.abspath(sys.argv[1]))
     else:
         model_args, data_args, __training_args = parser.parse_args_into_dataclasses()
