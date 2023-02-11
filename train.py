@@ -116,6 +116,8 @@ def make_output_dir(m: ModelArguments, t: EnhancedTrainingArguments):
     return str(pathlib.Path(m.output_model_path) / output_name)
 
 def parse_train_arg(args: EnhancedTrainingArguments, output_dir):
+   # lr_scheduler_type='constant',
+   # weight_decay=0.1,
    return Seq2SeqTrainingArguments(
         evaluation_strategy="epoch",
         save_strategy="epoch",
@@ -126,8 +128,6 @@ def parse_train_arg(args: EnhancedTrainingArguments, output_dir):
         output_dir=output_dir,
         gradient_accumulation_steps=args.grad_ac,
         learning_rate=args.lr,
-        lr_scheduler_type='constant',
-        weight_decay=0.1,
         metric_for_best_model = 'eval_loss',
         load_best_model_at_end = True,
         save_total_limit=1,
