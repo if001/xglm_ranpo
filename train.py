@@ -71,6 +71,9 @@ class EnhancedTrainingArguments:
     lr: float = field(
         metadata={"help": "learning_rate"}
     )
+    fp16: bool = field(
+        default=True
+    )
 
     def __post_init__(self):
         debug_print(self)
@@ -131,7 +134,7 @@ def parse_train_arg(args: EnhancedTrainingArguments, output_dir):
         metric_for_best_model = 'eval_loss',
         load_best_model_at_end = True,
         save_total_limit=1,
-        fp16 = True
+        fp16 = args.fp16
         )
 
 def load_model(model_name):
