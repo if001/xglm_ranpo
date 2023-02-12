@@ -14,6 +14,7 @@ from transformers import (
     DataCollatorForSeq2Seq    
 )
 from transformers import XGLMTokenizer, XGLMForCausalLM
+from transformers.trainer_utils import SchedulerType
 
 from utils import (
     prepare_data_set,
@@ -73,6 +74,10 @@ class EnhancedTrainingArguments:
     )
     fp16: bool = field(
         default=True
+    )
+    lr_scheduler_type: SchedulerType = field(
+        default="linear",
+        metadata={"help": "liner or constant, or..."}        
     )
 
     def __post_init__(self):
