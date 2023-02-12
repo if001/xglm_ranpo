@@ -135,6 +135,7 @@ def parse_train_arg(args: EnhancedTrainingArguments, output_dir):
         num_train_epochs=args.epoch,
         output_dir=output_dir,
         gradient_accumulation_steps=args.grad_ac,
+        lr_scheduler_type=args.lr_scheduler_type,
         learning_rate=args.lr,
         metric_for_best_model = 'eval_loss',
         load_best_model_at_end = True,
